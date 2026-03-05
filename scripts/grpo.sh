@@ -8,12 +8,12 @@ lr=5e-5
 lr_scheduler_type=cosine
 logging_steps=10
 max_steps=5000
-per_device_train_batch_size=4
+per_device_train_batch_size=1
 per_device_eval_batch_size=4
 gradient_accumulation_steps=1
 max_prompt_length=2048
 max_completion_length=1024
-num_generations=8
+num_generations=4
 grpo_beta=0.001
 data_path=data/api_update.jsonl
 lora_r=64
@@ -26,7 +26,7 @@ warmup_ratio=0.03
 reward_func=es_star
 results=results
 
-torchrun --nproc_per_node 2 --master-port 12345 src/GRPO/grpo.py \
+torchrun --nproc_per_node 1 --master-port 12345 src/GRPO/grpo.py \
     --model_name_or_path ${model_name_or_path} \
     --attn_implementation ${attn_implementation} \
     --output_dir ${output_dir} \
