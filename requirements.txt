@@ -1,7 +1,7 @@
 # Core training / HF stack (Py3.12-friendly) — PIN to avoid TRL/Transformers API mismatch
 accelerate==1.5.0
 transformers==4.46.3
-trl==0.13.0
+trl==0.15.2
 peft==0.11.1
 datasets==2.19.2
 
