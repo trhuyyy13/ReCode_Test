@@ -24,12 +24,21 @@ def main(args):
         # attn_implementation=args.attn_implementation,
         cache_dir='/mnt/16t/haoze',
     )
+    # dora_config = LoraConfig(
+    #     use_dora=True,
+    #     r=args.lora_r,
+    #     lora_alpha=args.lora_alpha,
+    #     lora_dropout=args.lora_dropout,
+    # )
     dora_config = LoraConfig(
-        use_dora=True,
-        r=args.lora_r,
-        lora_alpha=args.lora_alpha,
-        lora_dropout=args.lora_dropout,
-    )
+    r=args.lora_r,
+    lora_alpha=args.lora_alpha,
+    lora_dropout=args.lora_dropout,
+    bias="none",
+    task_type="CAUSAL_LM",
+    target_modules=["q_proj","k_proj","v_proj","o_proj","gate_proj","up_proj","down_proj"],
+    use_dora=True,  # nếu bạn đang dùng DoRA
+)
     model_name_or_path = get_peft_model(model_name_or_path, dora_config)
     
     # config for RL training
