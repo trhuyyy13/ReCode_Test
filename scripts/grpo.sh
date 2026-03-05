@@ -1,6 +1,6 @@
 export TOKENIZERS_PARALLELISM=false
 export CUDA_DEVICE_ORDER="PCI_BUS_ID"
-
+cd /kaggle/working/ReCode_Test || exit 1
 model_name_or_path=Qwen/Qwen2.5-Coder-7B-Instruct
 attn_implementation=flash_attention_2
 output_dir=./results
