@@ -3,7 +3,7 @@ accelerate==1.5.0
 transformers==4.46.3
 trl==0.15.2
 peft==0.11.1
-datasets==2.19.2
+datasets>=2.21.0,<3.0.0
 
 # Data / numerics (Py3.12 wheels)
 numpy==1.26.4
@@ -26,7 +26,7 @@ tensorboardX==2.6.2.2
 
 # Ray / RL utils
 ray[default]==2.9.3
-tensordict==0.6.2
+tensordict>=0.6.0,<0.7
 
 # Project-specific (REMOVE to avoid antlr conflict with hydra-core)
 # latex2sympy2_extended==0.1.0
